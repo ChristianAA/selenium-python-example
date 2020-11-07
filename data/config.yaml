@@ -1,0 +1,5 @@
+#chrome/firefox/edge
+browser: chrome
+
+#True/False --> Only on Chrome
+headless: False

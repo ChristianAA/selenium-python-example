@@ -1,0 +1,15 @@
+# Project
+/results/
+
+# Python
+venv/*
+*.pyc
+*.spec
+
+# Webdriver
+*.log
+
+# Intellij
+.idea/
+*.iml
+*.iws
