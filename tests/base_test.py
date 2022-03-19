@@ -7,6 +7,8 @@ import yaml
 
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.chrome.service import Service as ServiceChrome
+from selenium.webdriver.firefox.service import Service as ServiceFirefox
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 
@@ -35,9 +37,15 @@ class BaseTest:
                 options.add_argument('--no-sandbox')
                 options.add_argument('--disable-gpu')
                 options.add_argument('--window-size=1920,1080')
-            self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+            self.driver = webdriver.Chrome(service=ServiceChrome(ChromeDriverManager().install()), options=options)
         elif config()['browser'] == 'firefox':
-            self.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+            options = webdriver.FirefoxOptions()
+            if config()['headless']:
+                options.add_argument('--headless')
+                options.add_argument('--no-sandbox')
+                options.add_argument('--disable-gpu')
+                options.add_argument('--window-size=1920,1080')
+            self.driver = webdriver.Firefox(service=ServiceFirefox(GeckoDriverManager().install()), options=options)
         else:
             raise Exception("Incorrect Browser")
 

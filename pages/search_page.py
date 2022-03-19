@@ -19,4 +19,5 @@ class SearchPage(BasePage):
     def make_a_search(self, input_text):
         self.driver.find_element(*self.locator.SEARCH_INPUT).send_keys(input_text)
         self.driver.find_element(*self.locator.SEARCH_BUTTON).click()
-        self.wait.until(EC.presence_of_element_located(self.locator.LINKS))
+        self.wait.until(EC.presence_of_element_located(self.locator.RESULTS))
+        self.driver.save_screenshot("results/results.png")
