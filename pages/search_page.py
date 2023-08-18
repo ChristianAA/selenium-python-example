@@ -14,7 +14,7 @@ class SearchPage(BasePage):
         self.go_to_page(self.url)
 
     def check_title(self, title):
-        assert self.get_title() == title
+        self.wait.until(EC.title_contains(title))
 
     def make_a_search(self, input_text):
         self.driver.find_element(*self.locator.SEARCH_INPUT).send_keys(input_text)
