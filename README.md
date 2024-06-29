@@ -7,8 +7,8 @@ A simple search in DuckDuckGo to check that results are displayed is used as exa
 
 # Requirements
 
-* Python 3.7.X
-* pip and setuptools
+* Python 3.12.3
+* pip (24.0) and setuptools
 * [venv](<https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>) (recommended)
 
 # Instalation
