@@ -12,7 +12,7 @@ class TestSearch(BaseTest):
         self.page.go_to_search_page()
 
     def test_title(self, load_pages):
-        self.page.check_title("DuckDuckGo — ")
+        self.page.check_title("DuckDuckGo - ")
 
     def test_search(self, load_pages):
         self.page.make_a_search("Selenium")
