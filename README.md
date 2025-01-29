@@ -13,12 +13,19 @@ A simple search in DuckDuckGo to check that results are displayed is used as exa
 
 # Instalation
 
-1. Download or clone the repository 
+Assuming python, pip and venv are installed correctly:
+
+1. Download or clone this repository 
 2. Open a terminal
 3. Go to the project root directory "/selenium-python-example/".
-4. Create a virtual environment: `py -m venv venv`
-5. Activate the virtual environment executing the following script: `.\venv\Scripts\activate`
+4. Create a virtual environment: 
+   - (UBUNTU): `python3 -m venv .venv`
+   - (WINDOWS): `py -m venv venv`
+5. Activate the virtual environment executing the following script: 
+   - (UBUNTU): `source .venv/bin/activate`
+   - (WINDOWS): `.\venv\Scripts\activate`
 6. Execute the following command to download the necessary libraries:  `pip install -r requirements.txt`
+
 
 # Test Execution
 
