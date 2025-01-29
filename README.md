@@ -11,7 +11,7 @@ A simple search in DuckDuckGo to check that results are displayed is used as exa
 * pip (24.0) and setuptools
 * [venv](<https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>) (recommended)
 
-# Instalation Windows
+# Instalation
 
 Assuming python, pip and venv are installed correctly:
 
