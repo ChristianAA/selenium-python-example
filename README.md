@@ -1,3 +1,5 @@
+[![Daily Selenium UI Tests](https://github.com/ChristianAA/selenium-python-example/actions/workflows/daily-test.yml/badge.svg)](https://github.com/ChristianAA/selenium-python-example/actions/workflows/daily-test.yml)
+
 # Selenium-Python-Example
 
 This repository contains the base setup of an UI testing project,
