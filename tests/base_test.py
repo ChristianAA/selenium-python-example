@@ -13,6 +13,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 
 os.environ['WDM_LOG_LEVEL'] = '0'
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
 
 
 def config():
@@ -30,22 +31,27 @@ class BaseTest:
     @pytest.fixture(autouse=True)
     def init_driver(self):
         warnings.simplefilter("ignore", ResourceWarning)
+
         if config()['browser'] == 'chrome':
             options = webdriver.ChromeOptions()
+            options.add_argument(f'user-agent={user_agent}')
             if config()['headless']:
                 options.add_argument('--headless')
                 options.add_argument('--no-sandbox')
                 options.add_argument('--disable-gpu')
                 options.add_argument('--window-size=1920,1080')
             self.driver = webdriver.Chrome(service=ServiceChrome(ChromeDriverManager().install()), options=options)
+
         elif config()['browser'] == 'firefox':
             options = webdriver.FirefoxOptions()
+            options.set_preference("general.useragent.override", user_agent)
             if config()['headless']:
                 options.add_argument('--headless')
                 options.add_argument('--no-sandbox')
                 options.add_argument('--disable-gpu')
                 options.add_argument('--window-size=1920,1080')
             self.driver = webdriver.Firefox(service=ServiceFirefox(GeckoDriverManager().install()), options=options)
+
         else:
             raise Exception("Incorrect Browser")
 
@@ -55,4 +61,4 @@ class BaseTest:
 
         if self.driver is not None:
             self.driver.close()
-            self.driver.quit()
+            self.driver.quit(
